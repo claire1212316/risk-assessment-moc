@@ -257,12 +257,8 @@
 
 
 <div id="notta-permissions-trigger"><iframe src="./free-input_files/permissions.html" allow="camera *; microphone *" style="display: none; visibility: hidden;"></iframe></div><div id="notta-transcription-toolbar-trigger"><template shadowrootmode="open"><style data-rc-order="prependQueue">.anticon{display:inline-flex;align-items:center;color:inherit;font-style:normal;line-height:0;text-align:center;text-transform:none;vertical-align:-0.125em;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}.anticon >*{line-height:1;}.anticon svg{display:inline-block;}.anticon .anticon .anticon-icon{display:block;}</style><style data-rc-order="prependQueue"></style><style>/**
- * 公共样式 - 所有 Content Scripts 共享
- * 
- * 参考 showcase-extension 的实现，只保留必要的基础样式
- * antd 5 会通过 CSS-in-JS 动态注入组件样式
- */
-/* 基础 box-sizing 设置 - 确保 antd 组件在 Shadow DOM 中正确渲染 */
+ 
+/* 基础 box-sizing 设置 */
 *,
 *::before,
 *::after {
@@ -270,12 +266,7 @@
   padding: 0;
   margin: 0;
 }
-/* 
- * Shadow DOM 中 antd 的 spin 动画修复
- * 
- * 问题：antd 的全局 anticon-spin 类的动画定义在 Shadow DOM 中丢失
- * 解决：手动添加 spin 动画定义
- */
+
 @keyframes anticon-spin {
   0% {
     transform: rotate(0deg);
@@ -543,5 +534,3 @@
             margin: 14px 0;
         }
     </style><style type="text/css">button[data-v-4f04decd]:focus{outline:0}.TransIcon[data-v-4f04decd]{position:fixed !important;transition:all .2s linear;animation:fadeIn-4f04decd .2s linear;z-index:999999999999999;filter:unset;width:34px;height:34px;border-radius:11px;border:1px solid #f1f1f1;overflow:hidden}.TransIcon img[data-v-4f04decd]{width:32px;height:32px;object-fit:cover;pointer-events:none}.TransIcon[data-v-4f04decd]:hover{cursor:pointer}.TransDialog[data-v-4f04decd]{position:fixed !important;animation:fadeIn-4f04decd .2s linear;background:#fff;border-radius:16px;border:1px solid #f1f1f1;box-shadow:0px 8px 40px 0px rgba(0,0,0,.1);overflow:hidden;z-index:999999999999999}.TransDialog .dragBlock[data-v-4f04decd]{position:absolute;top:0;left:0;right:0}.TransDialog .dragBlock[data-v-4f04decd]:hover{cursor:move}.TransDialog .dragBlock .top-drap-block[data-v-4f04decd],.TransDialog .dragBlock .left-drap-block[data-v-4f04decd]{position:absolute;left:0}.TransDialog .dragBlock .top-drap-block[data-v-4f04decd]{right:0;height:15px}.TransDialog .dragBlock .left-drap-block[data-v-4f04decd]{height:55px;right:120px}.TransDialog .dragBlock.preview .left-drap-block[data-v-4f04decd]{width:20px;height:79px;right:160px}.TransDialog .dragBlock.scale .left-drap-block[data-v-4f04decd]{right:53px;left:177px;height:40px}.MOJiWebExtensionpanelObject[data-v-4f04decd]{height:100%;width:calc(100% + 5px);border:none;overflow:hidden;z-index:999999999999999}@keyframes fadeIn-4f04decd{from{opacity:0}to{opacity:1}}
-/*# sourceURL=webpack://src/components/TransDialog/App.vue */
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9UcmFuc0RpYWxvZy9BcHAudnVlIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBLDhCQUNFLFNBQUEsQ0FHRiw0QkFDRSx5QkFBQSxDQUNBLHlCQUFBLENBQ0Esb0NBQUEsQ0FHQSx1QkFYZSxDQVlmLFlBQUEsQ0FDQSxVQUFBLENBQ0EsV0FBQSxDQUNBLGtCQUFBLENBQ0Esd0JBQUEsQ0FDQSxlQUFBLENBQ0EsZ0NBQ0UsVUFBQSxDQUNBLFdBQUEsQ0FDQSxnQkFBQSxDQUNBLG1CQUFBLENBSUosa0NBQ0UsY0FBQSxDQUdGLDhCQUNFLHlCQUFBLENBRUEsb0NBQUEsQ0FHQSxlQUFBLENBQ0Esa0JBQUEsQ0FDQSx3QkFBQSxDQUVBLDBDQUFBLENBQ0EsZUFBQSxDQUNBLHVCQTFDZSxDQTJDZix5Q0FDRSxpQkFBQSxDQUNBLEtBQUEsQ0FDQSxNQUFBLENBQ0EsT0FBQSxDQUdBLCtDQUNFLFdBQUEsQ0FHRixtSEFDRSxpQkFBQSxDQUNBLE1BQUEsQ0FHRix5REFDRSxPQUFBLENBQ0EsV0FBQSxDQUVGLDBEQUNFLFdBQUEsQ0FDQSxXQUFBLENBS0Esa0VBQ0UsVUFBQSxDQUNBLFdBQUEsQ0FDQSxXQUFBLENBTUYsZ0VBQ0UsVUFBQSxDQUNBLFVBQUEsQ0FDQSxXQUFBLENBTVIsOENBQ0UsV0FBQSxDQUNBLHNCQUFBLENBQ0EsV0FBQSxDQUNBLGVBQUEsQ0FFQSx1QkE5RmUsQ0FxR2pCLDJCQUNFLEtBQ0UsU0FBQSxDQUVGLEdBQ0UsU0FBQSxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnQC9zY3NzL3ZhcmlhYmxlcy5zY3NzJztcblxuJGRpYWxvZy16LWluZGV4OiA5OTk5OTk5OTk5OTk5OTk7XG5idXR0b246Zm9jdXMge1xuICBvdXRsaW5lOiAwO1xufVxuXG4uVHJhbnNJY29uIHtcbiAgcG9zaXRpb246IGZpeGVkICFpbXBvcnRhbnQ7XG4gIHRyYW5zaXRpb246IGFsbCAwLjJzIGxpbmVhcjtcbiAgYW5pbWF0aW9uOiBmYWRlSW4gMC4ycyBsaW5lYXI7XG4gIC8vIHdpZHRoOiAyNHB4O1xuICAvLyBoZWlnaHQ6IDI0cHg7XG4gIHotaW5kZXg6ICRkaWFsb2ctei1pbmRleDtcbiAgZmlsdGVyOiB1bnNldDtcbiAgd2lkdGg6IDM0cHg7XG4gIGhlaWdodDogMzRweDtcbiAgYm9yZGVyLXJhZGl1czogMTFweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI0YxRjFGMTtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgaW1nIHtcbiAgICB3aWR0aDogMzJweDtcbiAgICBoZWlnaHQ6IDMycHg7XG4gICAgb2JqZWN0LWZpdDogY292ZXI7XG4gICAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG4gIH1cbn1cblxuLlRyYW5zSWNvbjpob3ZlciB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLlRyYW5zRGlhbG9nIHtcbiAgcG9zaXRpb246IGZpeGVkICFpbXBvcnRhbnQ7XG4gIC8vIHRyYW5zaXRpb246IGFsbCAwLjJzIGxpbmVhcjtcbiAgYW5pbWF0aW9uOiBmYWRlSW4gMC4ycyBsaW5lYXI7XG4gIC8vIHdpZHRoOiAzOTJweDtcbiAgLy8gaGVpZ2h0OiA0NDhweDtcbiAgYmFja2dyb3VuZDogI2ZmZmZmZjtcbiAgYm9yZGVyLXJhZGl1czogMTZweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2YxZjFmMTtcbiAgLy8gb3ZlcmZsb3c6IGF1dG87XG4gIGJveC1zaGFkb3c6IDBweCA4cHggNDBweCAwcHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB6LWluZGV4OiAkZGlhbG9nLXotaW5kZXg7XG4gIC5kcmFnQmxvY2sge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6MDtcbiAgICBsZWZ0OiAwO1xuICAgIHJpZ2h0OiAwO1xuICAgIC8vIGhlaWdodDogNjBweDtcblxuICAgICY6aG92ZXIge1xuICAgICAgY3Vyc29yOiBtb3ZlO1xuICAgIH1cblxuICAgIC50b3AtZHJhcC1ibG9jaywgLmxlZnQtZHJhcC1ibG9jayB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBsZWZ0OiAwO1xuICAgIH1cbiAgICAvLyBkZWZhbHVsdFxuICAgIC50b3AtZHJhcC1ibG9jayB7XG4gICAgICByaWdodDogMDtcbiAgICAgIGhlaWdodDogMTVweDtcbiAgICB9XG4gICAgLmxlZnQtZHJhcC1ibG9jayB7XG4gICAgICBoZWlnaHQ6IDU1cHg7XG4gICAgICByaWdodDogMTIwcHg7XG4gICAgfVxuXG4gICAgLy8gcHJldmlld1xuICAgICYucHJldmlldyB7XG4gICAgICAubGVmdC1kcmFwLWJsb2NrIHtcbiAgICAgICAgd2lkdGg6IDIwcHg7XG4gICAgICAgIGhlaWdodDogNzlweDtcbiAgICAgICAgcmlnaHQ6IDE2MHB4O1xuICAgICAgfVxuICAgIH1cblxuICAgIC8vIGRpYWxvZyB3aXRoIHNjYWxlXG4gICAgJi5zY2FsZSB7XG4gICAgICAubGVmdC1kcmFwLWJsb2NrIHtcbiAgICAgICAgcmlnaHQ6IDUzcHg7XG4gICAgICAgIGxlZnQ6IDE3N3B4O1xuICAgICAgICBoZWlnaHQ6IDQwcHg7XG4gICAgICB9XG4gICAgfVxuICB9XG59XG5cbi5NT0ppV2ViRXh0ZW5zaW9ucGFuZWxPYmplY3Qge1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiBjYWxjKDEwMCUgKyA1cHgpO1xuICBib3JkZXI6IG5vbmU7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIC8vIGJhY2tncm91bmQ6ICNmZmZmZmY7XG4gIHotaW5kZXg6ICRkaWFsb2ctei1pbmRleDtcbiAgLy8g5LiN5pi+56S654Gr54uQaWZyYW1l55qE5rua5Yqo5p2hXG4gIC8vICYuZmlyZWZveC1vYmplY3Qge1xuICAvLyAgIHdpZHRoOiBjYWxjKDEwMCUgKyAxNXB4KTtcbiAgLy8gfVxufVxuXG5Aa2V5ZnJhbWVzIGZhZGVJbiB7XG4gIGZyb20ge1xuICAgIG9wYWNpdHk6IDA7XG4gIH1cbiAgdG8ge1xuICAgIG9wYWNpdHk6IDE7XG4gIH1cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style type="text/css" data-comment-style=""></style></template></div><div id="notta-transcription-global-message"></div></body></html>
