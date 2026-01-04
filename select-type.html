@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<!-- saved from url=(0132)file:///Users/claireburg/Desktop/SE/%E3%83%AA%E3%82%B9%E3%82%AF%E5%AF%BE%E7%AD%96/%E3%83%AA%E3%82%B9%E3%82%AF%E9%81%B8%E6%8A%9E.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>リスクアセスメント（選択版）</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            padding: 18px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+        }
+
+        h2 {
+            margin: 24px 0 8px;
+            font-size: 16px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 14px;
+            margin: 12px 0;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 6px;
+            font-weight: 600;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .result {
+            font-weight: 800;
+            color: #c00;
+        }
+
+        .muted {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .dangerBox {
+            white-space: pre-wrap;
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .measures {
+            display: grid;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .measureItem {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 8px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .measureItem input {
+            margin-top: 3px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #fafafa;
+        }
+
+        .warn {
+            color: #b00;
+            font-weight: 700;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 14px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>リスクアセスメント（選択版）</h1>
+    <div class="muted">作業項目 → 危険源 →（危険源に紐づく）対策候補を複数提示し、現場条件に合わせて選択</div>
+
+    <div class="card">
+        <h2>① 作業項目</h2>
+        <label for="workItem">作業項目を選択</label>
+        <select id="workItem">
+            <option value="">選択してください</option>
+        <option value="W_High">高所作業</option><option value="W_Pole">接柱作業</option><option value="W_String">延線作業</option><option value="W_Tr">変圧器作業</option><option value="W_Sw">開閉器作業</option></select>
+
+        <h2>② 危険源</h2>
+        <label for="dangerSource">危険源を選択</label>
+        <select id="dangerSource" disabled=""><option value="">作業項目を選択してください</option></select>
+
+        <div class="divider"></div>
+
+        <h2>③ 対策前リスク評価</h2>
+        <div class="row">
+            <div>
+                <label for="severityBefore">発生時の重篤度（1〜5）</label>
+                <select id="severityBefore">
+                    <option value="">選択</option>
+                    <option value="1">1（低）</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5（高）</option>
+                </select>
+            </div>
+            <div>
+                <label for="possibilityBefore">発生の可能性（1〜5）</label>
+                <select id="possibilityBefore">
+                    <option value="">選択</option>
+                    <option value="1">1（低）</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5（高）</option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            優先度（対策前）：<span id="priorityBefore" class="result">―</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>④ 対策</h2>
+        <div class="muted">危険源を選ぶと、該当危険源に適用可能な対策候補が一覧表示されます（複数選択可）。</div>
+
+        <div id="dangerPreview" class="dangerBox muted">危険源を選択してください</div>
+
+        <div class="actions">
+            <button id="selectAllBtn" type="button" disabled="">全て選択</button>
+            <button id="clearAllBtn" type="button" disabled="">全て解除</button>
+            <span id="measureCount" class="muted"></span>
+        </div>
+
+        <div id="measureList" class="measures"></div>
+        <div id="measureHint" class="muted" style="margin-top:10px;"></div>
+
+        <div class="divider"></div>
+
+        <h2>⑤ 対策後リスク評価</h2>
+        <div class="row">
+            <div>
+                <label for="severityAfter">発生時の重篤度（1〜5）</label>
+                <select id="severityAfter" disabled="">
+                    <option value="">選択</option>
+                    <option value="1">1（低）</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5（高）</option>
+                </select>
+            </div>
+            <div>
+                <label for="possibilityAfter">発生の可能性（1〜5）</label>
+                <select id="possibilityAfter" disabled="">
+                    <option value="">選択</option>
+                    <option value="1">1（低）</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5（高）</option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            優先度（対策後）：<span id="priorityAfter" class="result">―</span>
+        </div>
+
+        <div id="afterWarn" class="muted" style="margin-top:10px;"><span class="muted">※ 対策候補を選択すると、対策後の評価が入力できるようになります。</span></div>
+    </div>
+
+    <script>
+        /***********************
+         * 1) マスタ（例：5作業カテゴリ）
+         ***********************/
+        const WORK_ITEMS = [
+            { id: "W_High", name: "高所作業" },
+            { id: "W_Pole", name: "接柱作業" },
+            { id: "W_String", name: "延線作業" },
+            { id: "W_Tr", name: "変圧器作業" },
+            { id: "W_Sw", name: "開閉器作業" },
+        ];
+
+        // 危険源マスタ（作業項目をまたいで再利用できるよう「ID化」）
+        const DANGERS = {
+            D_Fall: { id: "D_Fall", text: "高所作業中の墜落・転落" },
+            D_Drop: { id: "D_Drop", text: "工具・資材の落下" },
+            D_Shock: { id: "D_Shock", text: "活線部接触・近接による感電" },
+            D_Crane: { id: "D_Crane", text: "クレーン・重機の旋回範囲内立入／接触" },
+            D_Sling: { id: "D_Sling", text: "玉掛け不良による吊荷落下" },
+            D_Ground: { id: "D_Ground", text: "地盤不良による転倒・傾倒（建柱・据付）" },
+            D_Tension: { id: "D_Tension", text: "張力・はね返り（延線中の反動）" },
+            D_CutBack: { id: "D_CutBack", text: "切断時の反動・飛来" },
+            D_Pinched: { id: "D_Pinched", text: "挟まれ・巻き込まれ（資材・工具・機器）" },
+            D_Arc: { id: "D_Arc", text: "アーク発生による火傷" },
+            D_MisOp: { id: "D_MisOp", text: "誤認・誤操作（機器識別ミス）" },
+            D_OilFire: { id: "D_OilFire", text: "油漏れ・火災（変圧器）" },
+            D_Heavy: { id: "D_Heavy", text: "重量物取扱いによる腰痛・下敷き" },
+        };
+
+        // 作業項目 → 想定危険源（絞り込み用）
+        const WORK_TO_DANGER_IDS = {
+            W_High: ["D_Fall", "D_Drop", "D_Shock", "D_Pinched"],
+            W_Pole: ["D_Crane", "D_Sling", "D_Ground", "D_Shock", "D_Pinched"],
+            W_String: ["D_Tension", "D_CutBack", "D_Shock", "D_Pinched", "D_Drop"],
+            W_Tr: ["D_Heavy", "D_Sling", "D_Shock", "D_OilFire", "D_Pinched"],
+            W_Sw: ["D_Shock", "D_Arc", "D_MisOp", "D_Pinched"],
+        };
+
+        // 対策マスタ（共通対策は複数危険源に紐づく前提でID化）
+        const MEASURES = {
+            M_Harness: { id: "M_Harness", text: "フルハーネス型安全帯の着用・適正使用" },
+            M_Footing: { id: "M_Footing", text: "作業床・足場の事前点検／足元確保" },
+            M_DropStop: { id: "M_DropStop", text: "工具・資材の落下防止（落下防止帯・工具ランヤード等）" },
+            M_Weather: { id: "M_Weather", text: "悪天候時の中止基準設定（強風・雨天時停止）" },
+            M_Insulate: { id: "M_Insulate", text: "絶縁保護具・専用工具の使用（絶縁手袋・保護カバー等）" },
+            M_KY: { id: "M_KY", text: "作業前KY（危険予知）・指差呼称の実施" },
+            M_Barrier: { id: "M_Barrier", text: "立入禁止区域の設定／第三者立入防止" },
+            M_Signaler: { id: "M_Signaler", text: "合図者・誘導員の配置（重機・車両・搬入）" },
+            M_SlingQual: { id: "M_SlingQual", text: "玉掛け資格者による作業／点検済み具材の使用" },
+            M_TensionCtl: { id: "M_TensionCtl", text: "張力管理・反動を想定した立位置／手順遵守" },
+            M_CutZone: { id: "M_CutZone", text: "切断時の飛来防止（周囲退避・遮へい・保護具）" },
+            M_Identify: { id: "M_Identify", text: "機器表示・識別の徹底（誤認防止の再確認）" },
+            M_PPEArc: { id: "M_PPEArc", text: "防護具着用（アーク対策：防護面・耐熱手袋等）" },
+            M_FireExt: { id: "M_FireExt", text: "消火器準備・油漏れ確認・火気管理" },
+            M_Manual: { id: "M_Manual", text: "作業手順書の作成・周知・遵守" },
+            M_ToolCheck: { id: "M_ToolCheck", text: "工具・機材の事前点検（絶縁・劣化・破損確認）" },
+        };
+
+        // 危険源 → 対策候補（ここが「一対一ではない」ポイント。複数候補を列挙）
+        const DANGER_TO_MEASURE_IDS = {
+            D_Fall: ["M_Harness", "M_Footing", "M_Weather", "M_Manual", "M_KY"],
+            D_Drop: ["M_DropStop", "M_Barrier", "M_Manual", "M_KY"],
+            D_Shock: ["M_Insulate", "M_ToolCheck", "M_Identify", "M_Manual", "M_KY"],
+            D_Crane: ["M_Barrier", "M_Signaler", "M_Manual", "M_KY"],
+            D_Sling: ["M_SlingQual", "M_Signaler", "M_Barrier", "M_Manual", "M_KY"],
+            D_Ground: ["M_Manual", "M_Barrier", "M_KY"],
+            D_Tension: ["M_TensionCtl", "M_Barrier", "M_Manual", "M_KY"],
+            D_CutBack: ["M_CutZone", "M_Barrier", "M_Manual", "M_KY"],
+            D_Pinched: ["M_Manual", "M_Barrier", "M_KY"],
+            D_Arc: ["M_PPEArc", "M_Identify", "M_Insulate", "M_Manual", "M_KY"],
+            D_MisOp: ["M_Identify", "M_Manual", "M_KY"],
+            D_OilFire: ["M_FireExt", "M_Manual", "M_KY"],
+            D_Heavy: ["M_SlingQual", "M_Manual", "M_KY"],
+        };
+
+        /***********************
+         * 2) UI参照
+         ***********************/
+        const workItemEl = document.getElementById("workItem");
+        const dangerEl = document.getElementById("dangerSource");
+        const dangerPreviewEl = document.getElementById("dangerPreview");
+        const measureListEl = document.getElementById("measureList");
+        const measureCountEl = document.getElementById("measureCount");
+        const measureHintEl = document.getElementById("measureHint");
+        const selectAllBtn = document.getElementById("selectAllBtn");
+        const clearAllBtn = document.getElementById("clearAllBtn");
+
+        const sevB = document.getElementById("severityBefore");
+        const posB = document.getElementById("possibilityBefore");
+        const outB = document.getElementById("priorityBefore");
+
+        const sevA = document.getElementById("severityAfter");
+        const posA = document.getElementById("possibilityAfter");
+        const outA = document.getElementById("priorityAfter");
+        const afterWarn = document.getElementById("afterWarn");
+
+        /***********************
+         * 3) 初期化
+         ***********************/
+        function addOption(select, value, text) {
+            const opt = document.createElement("option");
+            opt.value = value;
+            opt.textContent = text;
+            select.appendChild(opt);
+        }
+
+        // 作業項目を投入
+        WORK_ITEMS.forEach(w => addOption(workItemEl, w.id, w.name));
+
+        function resetDanger() {
+            dangerEl.innerHTML = "";
+            addOption(dangerEl, "", "作業項目を選択してください");
+            dangerEl.disabled = true;
+            resetMeasures();
+            showDangerPreview(null);
+        }
+
+        function resetMeasures() {
+            measureListEl.innerHTML = "";
+            measureCountEl.textContent = "";
+            measureHintEl.textContent = "";
+            selectAllBtn.disabled = true;
+            clearAllBtn.disabled = true;
+
+            // 対策後スコアは「対策を1つ以上選択してから」入力できる設計にしておく
+            sevA.value = "";
+            posA.value = "";
+            outA.textContent = "―";
+            sevA.disabled = true;
+            posA.disabled = true;
+            afterWarn.innerHTML = "<span class='muted'>※ 対策候補を選択すると、対策後の評価が入力できるようになります。</span>";
+        }
+
+        function showDangerPreview(dangerId) {
+            if (!dangerId) {
+                dangerPreviewEl.textContent = "危険源を選択してください";
+                dangerPreviewEl.classList.add("muted");
+                return;
+            }
+            dangerPreviewEl.textContent = "選択中の危険源：\n" + DANGERS[dangerId].text;
+            dangerPreviewEl.classList.remove("muted");
+        }
+
+        function renderMeasuresForDanger(dangerId) {
+            resetMeasures();
+            if (!dangerId) return;
+
+            const measureIds = DANGER_TO_MEASURE_IDS[dangerId] || [];
+            if (measureIds.length === 0) {
+                measureHintEl.innerHTML = "<span class='warn'>この危険源に紐づく対策候補が未登録です。</span>";
+                return;
+            }
+
+            measureCountEl.textContent = `対策候補：${measureIds.length}件（複数選択可）`;
+            selectAllBtn.disabled = false;
+            clearAllBtn.disabled = false;
+
+            measureIds.forEach(mid => {
+                const m = MEASURES[mid];
+                const row = document.createElement("label");
+                row.className = "measureItem";
+                row.innerHTML = `
+          <input type="checkbox" class="measureCheck" value="${m.id}" />
+          <div>${m.text}</div>
+        `;
+                measureListEl.appendChild(row);
+            });
+
+            measureHintEl.textContent = "※ 現場条件に合わせて、適用可能な対策を複数選択してください。";
+
+            // checkboxイベント：1つでも選ばれたら対策後評価を有効化
+            measureListEl.addEventListener("change", onMeasuresChanged, { once: true });
+            // ↑ once:true で最初だけ付け、内部で再付与する（重複防止）
+            function onMeasuresChanged() {
+                const anyChecked = getSelectedMeasureIds().length > 0;
+                sevA.disabled = !anyChecked;
+                posA.disabled = !anyChecked;
+                afterWarn.innerHTML = anyChecked
+                    ? "<span class='muted'>対策後の重篤度・可能性を入力してください。</span>"
+                    : "<span class='muted'>※ 対策候補を選択すると、対策後の評価が入力できるようになります。</span>";
+
+                // 次の変更にも反応するよう再登録
+                measureListEl.addEventListener("change", onMeasuresChanged, { once: true });
+            }
+        }
+
+        function getSelectedMeasureIds() {
+            return Array.from(document.querySelectorAll(".measureCheck"))
+                .filter(ch => ch.checked)
+                .map(ch => ch.value);
+        }
+
+        selectAllBtn.addEventListener("click", () => {
+            document.querySelectorAll(".measureCheck").forEach(ch => ch.checked = true);
+            sevA.disabled = false;
+            posA.disabled = false;
+            afterWarn.innerHTML = "<span class='muted'>対策後の重篤度・可能性を入力してください。</span>";
+        });
+
+        clearAllBtn.addEventListener("click", () => {
+            document.querySelectorAll(".measureCheck").forEach(ch => ch.checked = false);
+            sevA.value = "";
+            posA.value = "";
+            outA.textContent = "―";
+            sevA.disabled = true;
+            posA.disabled = true;
+            afterWarn.innerHTML = "<span class='muted'>※ 対策候補を選択すると、対策後の評価が入力できるようになります。</span>";
+        });
+
+        /***********************
+         * 4) 優先度計算
+         * 1-5:極小 / 6-10:小 / 11-15:中 / 16-20:大 / 21-25:極大
+         ***********************/
+        function priorityLabel(score) {
+            if (score <= 5) return "極小";
+            if (score <= 10) return "小";
+            if (score <= 15) return "中";
+            if (score <= 20) return "大";
+            return "極大";
+        }
+
+        function calcPriority(sevEl, posEl, outEl) {
+            const s = Number(sevEl.value);
+            const p = Number(posEl.value);
+            if (!s || !p) { outEl.textContent = "―"; return; }
+            const score = s * p;
+            outEl.textContent = `${priorityLabel(score)}（${score}）`;
+        }
+
+        sevB.addEventListener("change", () => calcPriority(sevB, posB, outB));
+        posB.addEventListener("change", () => calcPriority(sevB, posB, outB));
+        sevA.addEventListener("change", () => calcPriority(sevA, posA, outA));
+        posA.addEventListener("change", () => calcPriority(sevA, posA, outA));
+
+        /***********************
+         * 5) 連動：作業項目 → 危険源 → 対策候補（複数）
+         ***********************/
+        workItemEl.addEventListener("change", () => {
+            const workId = workItemEl.value;
+            resetDanger();
+            if (!workId) return;
+
+            const dangerIds = WORK_TO_DANGER_IDS[workId] || [];
+            dangerEl.innerHTML = "";
+            addOption(dangerEl, "", "選択してください");
+            dangerIds.forEach(did => addOption(dangerEl, did, DANGERS[did].text));
+            dangerEl.disabled = false;
+
+            // 危険源が変わったら、対策前/後の表示は残してもOKだが、
+            // MOCとしては「対策後」をリセットする方が分かりやすい
+            resetMeasures();
+            showDangerPreview(null);
+        });
+
+        dangerEl.addEventListener("change", () => {
+            const dangerId = dangerEl.value;
+            showDangerPreview(dangerId || null);
+            renderMeasuresForDanger(dangerId || null);
+        });
+
+        // 初期状態
+        resetDanger();
+        afterWarn.innerHTML = "<span class='muted'>※ 対策候補を選択すると、対策後の評価が入力できるようになります。</span>";
+    </script>
+
+
+</body></html>

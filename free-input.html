@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<!-- saved from url=(0136)http://127.0.0.1:5500/%E3%83%AA%E3%82%B9%E3%82%AF%E5%AF%BE%E7%AD%96/%E3%83%AA%E3%82%B9%E3%82%AF%E8%87%AA%E7%94%B1%E5%85%A5%E5%8A%9B.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style data-rc-order="prependQueue" data-css-hash="ifat8r" data-token-hash="1p9qdg">.anticon{display:inline-flex;align-items:center;color:inherit;font-style:normal;line-height:0;text-align:center;text-transform:none;vertical-align:-0.125em;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}.anticon >*{line-height:1;}.anticon svg{display:inline-block;}.anticon .anticon .anticon-icon{display:block;}</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>リスクアセスメント MOC（自由入力版）</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            padding: 18px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+        }
+
+        h2 {
+            margin: 24px 0 8px;
+            font-size: 16px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 14px;
+            margin: 12px 0;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 6px;
+            font-weight: 600;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .muted {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .result {
+            font-weight: 800;
+            color: #c00;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 14px 0;
+        }
+    </style>
+<style type="text/css">button[data-v-4f04decd]:focus{outline:0}.TransIcon[data-v-4f04decd]{position:fixed !important;transition:all .2s linear;animation:fadeIn-4f04decd .2s linear;z-index:999999999999999;filter:unset;width:34px;height:34px;border-radius:11px;border:1px solid #f1f1f1;overflow:hidden}.TransIcon img[data-v-4f04decd]{width:32px;height:32px;object-fit:cover;pointer-events:none}.TransIcon[data-v-4f04decd]:hover{cursor:pointer}.TransDialog[data-v-4f04decd]{position:fixed !important;animation:fadeIn-4f04decd .2s linear;background:#fff;border-radius:16px;border:1px solid #f1f1f1;box-shadow:0px 8px 40px 0px rgba(0,0,0,.1);overflow:hidden;z-index:999999999999999}.TransDialog .dragBlock[data-v-4f04decd]{position:absolute;top:0;left:0;right:0}.TransDialog .dragBlock[data-v-4f04decd]:hover{cursor:move}.TransDialog .dragBlock .top-drap-block[data-v-4f04decd],.TransDialog .dragBlock .left-drap-block[data-v-4f04decd]{position:absolute;left:0}.TransDialog .dragBlock .top-drap-block[data-v-4f04decd]{right:0;height:15px}.TransDialog .dragBlock .left-drap-block[data-v-4f04decd]{height:55px;right:120px}.TransDialog .dragBlock.preview .left-drap-block[data-v-4f04decd]{width:20px;height:79px;right:160px}.TransDialog .dragBlock.scale .left-drap-block[data-v-4f04decd]{right:53px;left:177px;height:40px}.MOJiWebExtensionpanelObject[data-v-4f04decd]{height:100%;width:calc(100% + 5px);border:none;overflow:hidden;z-index:999999999999999}@keyframes fadeIn-4f04decd{from{opacity:0}to{opacity:1}}
+/*# sourceURL=webpack://src/components/TransDialog/App.vue */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9UcmFuc0RpYWxvZy9BcHAudnVlIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBLDhCQUNFLFNBQUEsQ0FHRiw0QkFDRSx5QkFBQSxDQUNBLHlCQUFBLENBQ0Esb0NBQUEsQ0FHQSx1QkFYZSxDQVlmLFlBQUEsQ0FDQSxVQUFBLENBQ0EsV0FBQSxDQUNBLGtCQUFBLENBQ0Esd0JBQUEsQ0FDQSxlQUFBLENBQ0EsZ0NBQ0UsVUFBQSxDQUNBLFdBQUEsQ0FDQSxnQkFBQSxDQUNBLG1CQUFBLENBSUosa0NBQ0UsY0FBQSxDQUdGLDhCQUNFLHlCQUFBLENBRUEsb0NBQUEsQ0FHQSxlQUFBLENBQ0Esa0JBQUEsQ0FDQSx3QkFBQSxDQUVBLDBDQUFBLENBQ0EsZUFBQSxDQUNBLHVCQTFDZSxDQTJDZix5Q0FDRSxpQkFBQSxDQUNBLEtBQUEsQ0FDQSxNQUFBLENBQ0EsT0FBQSxDQUdBLCtDQUNFLFdBQUEsQ0FHRixtSEFDRSxpQkFBQSxDQUNBLE1BQUEsQ0FHRix5REFDRSxPQUFBLENBQ0EsV0FBQSxDQUVGLDBEQUNFLFdBQUEsQ0FDQSxXQUFBLENBS0Esa0VBQ0UsVUFBQSxDQUNBLFdBQUEsQ0FDQSxXQUFBLENBTUYsZ0VBQ0UsVUFBQSxDQUNBLFVBQUEsQ0FDQSxXQUFBLENBTVIsOENBQ0UsV0FBQSxDQUNBLHNCQUFBLENBQ0EsV0FBQSxDQUNBLGVBQUEsQ0FFQSx1QkE5RmUsQ0FxR2pCLDJCQUNFLEtBQ0UsU0FBQSxDQUVGLEdBQ0UsU0FBQSxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnQC9zY3NzL3ZhcmlhYmxlcy5zY3NzJztcblxuJGRpYWxvZy16LWluZGV4OiA5OTk5OTk5OTk5OTk5OTk7XG5idXR0b246Zm9jdXMge1xuICBvdXRsaW5lOiAwO1xufVxuXG4uVHJhbnNJY29uIHtcbiAgcG9zaXRpb246IGZpeGVkICFpbXBvcnRhbnQ7XG4gIHRyYW5zaXRpb246IGFsbCAwLjJzIGxpbmVhcjtcbiAgYW5pbWF0aW9uOiBmYWRlSW4gMC4ycyBsaW5lYXI7XG4gIC8vIHdpZHRoOiAyNHB4O1xuICAvLyBoZWlnaHQ6IDI0cHg7XG4gIHotaW5kZXg6ICRkaWFsb2ctei1pbmRleDtcbiAgZmlsdGVyOiB1bnNldDtcbiAgd2lkdGg6IDM0cHg7XG4gIGhlaWdodDogMzRweDtcbiAgYm9yZGVyLXJhZGl1czogMTFweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI0YxRjFGMTtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgaW1nIHtcbiAgICB3aWR0aDogMzJweDtcbiAgICBoZWlnaHQ6IDMycHg7XG4gICAgb2JqZWN0LWZpdDogY292ZXI7XG4gICAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG4gIH1cbn1cblxuLlRyYW5zSWNvbjpob3ZlciB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLlRyYW5zRGlhbG9nIHtcbiAgcG9zaXRpb246IGZpeGVkICFpbXBvcnRhbnQ7XG4gIC8vIHRyYW5zaXRpb246IGFsbCAwLjJzIGxpbmVhcjtcbiAgYW5pbWF0aW9uOiBmYWRlSW4gMC4ycyBsaW5lYXI7XG4gIC8vIHdpZHRoOiAzOTJweDtcbiAgLy8gaGVpZ2h0OiA0NDhweDtcbiAgYmFja2dyb3VuZDogI2ZmZmZmZjtcbiAgYm9yZGVyLXJhZGl1czogMTZweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2YxZjFmMTtcbiAgLy8gb3ZlcmZsb3c6IGF1dG87XG4gIGJveC1zaGFkb3c6IDBweCA4cHggNDBweCAwcHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB6LWluZGV4OiAkZGlhbG9nLXotaW5kZXg7XG4gIC5kcmFnQmxvY2sge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6MDtcbiAgICBsZWZ0OiAwO1xuICAgIHJpZ2h0OiAwO1xuICAgIC8vIGhlaWdodDogNjBweDtcblxuICAgICY6aG92ZXIge1xuICAgICAgY3Vyc29yOiBtb3ZlO1xuICAgIH1cblxuICAgIC50b3AtZHJhcC1ibG9jaywgLmxlZnQtZHJhcC1ibG9jayB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBsZWZ0OiAwO1xuICAgIH1cbiAgICAvLyBkZWZhbHVsdFxuICAgIC50b3AtZHJhcC1ibG9jayB7XG4gICAgICByaWdodDogMDtcbiAgICAgIGhlaWdodDogMTVweDtcbiAgICB9XG4gICAgLmxlZnQtZHJhcC1ibG9jayB7XG4gICAgICBoZWlnaHQ6IDU1cHg7XG4gICAgICByaWdodDogMTIwcHg7XG4gICAgfVxuXG4gICAgLy8gcHJldmlld1xuICAgICYucHJldmlldyB7XG4gICAgICAubGVmdC1kcmFwLWJsb2NrIHtcbiAgICAgICAgd2lkdGg6IDIwcHg7XG4gICAgICAgIGhlaWdodDogNzlweDtcbiAgICAgICAgcmlnaHQ6IDE2MHB4O1xuICAgICAgfVxuICAgIH1cblxuICAgIC8vIGRpYWxvZyB3aXRoIHNjYWxlXG4gICAgJi5zY2FsZSB7XG4gICAgICAubGVmdC1kcmFwLWJsb2NrIHtcbiAgICAgICAgcmlnaHQ6IDUzcHg7XG4gICAgICAgIGxlZnQ6IDE3N3B4O1xuICAgICAgICBoZWlnaHQ6IDQwcHg7XG4gICAgICB9XG4gICAgfVxuICB9XG59XG5cbi5NT0ppV2ViRXh0ZW5zaW9ucGFuZWxPYmplY3Qge1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiBjYWxjKDEwMCUgKyA1cHgpO1xuICBib3JkZXI6IG5vbmU7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIC8vIGJhY2tncm91bmQ6ICNmZmZmZmY7XG4gIHotaW5kZXg6ICRkaWFsb2ctei1pbmRleDtcbiAgLy8g5LiN5pi+56S654Gr54uQaWZyYW1l55qE5rua5Yqo5p2hXG4gIC8vICYuZmlyZWZveC1vYmplY3Qge1xuICAvLyAgIHdpZHRoOiBjYWxjKDEwMCUgKyAxNXB4KTtcbiAgLy8gfVxufVxuXG5Aa2V5ZnJhbWVzIGZhZGVJbiB7XG4gIGZyb20ge1xuICAgIG9wYWNpdHk6IDA7XG4gIH1cbiAgdG8ge1xuICAgIG9wYWNpdHk6IDE7XG4gIH1cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style type="text/css" data-comment-style=""></style></head>
+
+<body>
+    <h1>リスクアセスメント（自由入力版）</h1>
+    <div class="muted">作業項目を選択し、危険抽出・対策は自由入力。優先度は自動算出。</div>
+
+    <div class="card">
+        <h2>① 作業項目</h2>
+        <label for="workItem">作業項目を選択</label>
+        <select id="workItem">
+            <option value="">選択してください</option>
+        <option value="高所作業">高所作業</option><option value="接柱作業">接柱作業</option><option value="延線作業">延線作業</option><option value="変圧器作業">変圧器作業</option><option value="開閉器作業">開閉器作業</option><option value="無停電作業">無停電作業</option><option value="アルミ電線工事">アルミ電線工事</option><option value="移動用変圧器">移動用変圧器</option><option value="高圧バインド取替工事">高圧バインド取替工事</option><option value="避雷器工事">避雷器工事</option><option value="架空地線撤去">架空地線撤去</option><option value="資材運搬作業">資材運搬作業</option></select>
+
+        <h2>② 危険抽出</h2>
+        <label for="dangerText">危険抽出（自由入力）</label>
+        <textarea id="dangerText" placeholder="危険と感じる場所を自由に入力する"></textarea>
+
+        <div class="divider"></div>
+
+        <h2>③ 対策前リスク評価</h2>
+        <div class="row">
+            <div>
+                <label for="severityBefore">発生時の重篤度（1〜5）</label>
+                <select id="severityBefore">
+                    <option value="">選択</option>
+                    <option value="1">1（低）</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5（高）</option>
+                </select>
+            </div>
+            <div>
+                <label for="possibilityBefore">発生の可能性（1〜5）</label>
+                <select id="possibilityBefore">
+                    <option value="">選択</option>
+                    <option value="1">1（低）</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5（高）</option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            優先度（対策前）：<span id="priorityBefore" class="result">―</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>④ 対策（自由入力）</h2>
+        <label for="measureText">対策（自由入力）</label>
+        <textarea id="measureText" placeholder="危険源に対する対策を入力する"></textarea>
+
+        <div class="divider"></div>
+
+        <h2>⑤ 対策後リスク評価</h2>
+        <div class="row">
+            <div>
+                <label for="severityAfter">発生時の重篤度（1〜5）</label>
+                <select id="severityAfter">
+                    <option value="">選択</option>
+                    <option value="1">1（低）</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5（高）</option>
+                </select>
+            </div>
+            <div>
+                <label for="possibilityAfter">発生の可能性（1〜5）</label>
+                <select id="possibilityAfter">
+                    <option value="">選択</option>
+                    <option value="1">1（低）</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5（高）</option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            優先度（対策後）：<span id="priorityAfter" class="result">―</span>
+        </div>
+
+        <div class="muted" style="margin-top:10px;">
+            ※ 優先度＝重篤度×可能性（1〜25）を5段階に換算：極小(1-5) / 小(6-10) / 中(11-15) / 大(16-20) / 極大(21-25)
+        </div>
+    </div>
+
+    <script>
+
+        const WORK_ITEMS = [
+            "高所作業",
+            "接柱作業",
+            "延線作業",
+            "変圧器作業",
+            "開閉器作業",
+            "無停電作業",
+            "アルミ電線工事",
+            "移動用変圧器",
+            "高圧バインド取替工事",
+            "避雷器工事",
+            "架空地線撤去",
+            "資材運搬作業"
+        ];
+
+        const workItemEl = document.getElementById("workItem");
+        WORK_ITEMS.forEach(name => {
+            const opt = document.createElement("option");
+            opt.value = name;
+            opt.textContent = name;
+            workItemEl.appendChild(opt);
+        });
+
+        /***********************
+         * 優先度計算
+         ***********************/
+        const sevB = document.getElementById("severityBefore");
+        const posB = document.getElementById("possibilityBefore");
+        const outB = document.getElementById("priorityBefore");
+
+        const sevA = document.getElementById("severityAfter");
+        const posA = document.getElementById("possibilityAfter");
+        const outA = document.getElementById("priorityAfter");
+
+        function priorityLabel(score) {
+            if (score <= 5) return "極小";
+            if (score <= 10) return "小";
+            if (score <= 15) return "中";
+            if (score <= 20) return "大";
+            return "極大";
+        }
+
+        function calcPriority(sevEl, posEl, outEl) {
+            const s = Number(sevEl.value);
+            const p = Number(posEl.value);
+            if (!s || !p) { outEl.textContent = "―"; return; }
+            const score = s * p;
+            outEl.textContent = `${priorityLabel(score)}（${score}）`;
+        }
+
+        sevB.addEventListener("change", () => calcPriority(sevB, posB, outB));
+        posB.addEventListener("change", () => calcPriority(sevB, posB, outB));
+        sevA.addEventListener("change", () => calcPriority(sevA, posA, outA));
+        posA.addEventListener("change", () => calcPriority(sevA, posA, outA));
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+<div id="notta-permissions-trigger"><iframe src="./free-input_files/permissions.html" allow="camera *; microphone *" style="display: none; visibility: hidden;"></iframe></div><div id="notta-transcription-toolbar-trigger"><template shadowrootmode="open"><style data-rc-order="prependQueue">.anticon{display:inline-flex;align-items:center;color:inherit;font-style:normal;line-height:0;text-align:center;text-transform:none;vertical-align:-0.125em;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}.anticon >*{line-height:1;}.anticon svg{display:inline-block;}.anticon .anticon .anticon-icon{display:block;}</style><style data-rc-order="prependQueue"></style><style>/**
+ * 公共样式 - 所有 Content Scripts 共享
+ * 
+ * 参考 showcase-extension 的实现，只保留必要的基础样式
+ * antd 5 会通过 CSS-in-JS 动态注入组件样式
+ */
+/* 基础 box-sizing 设置 - 确保 antd 组件在 Shadow DOM 中正确渲染 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* 
+ * Shadow DOM 中 antd 的 spin 动画修复
+ * 
+ * 问题：antd 的全局 anticon-spin 类的动画定义在 Shadow DOM 中丢失
+ * 解决：手动添加 spin 动画定义
+ */
+@keyframes anticon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.anticon-spin {
+  animation: anticon-spin 1s linear infinite;
+}
+
+._transcription_toolbar_1kv88_1 {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  right: 45px;
+  height: 48px;
+  width: fit-content;
+  cursor: pointer;
+  z-index: 99999999;
+  border-radius: 40px;
+  background: var(--color-background-neutral-white, #fff);
+  box-shadow: 0px 0px 1px 0px rgba(15, 26, 38, 0.12), 0px 6px 24px 0px rgba(15, 26, 38, 0.12);
+  display: inline-flex;
+  padding: 6px var(--spacing-100, 8px);
+  align-items: center;
+  flex-shrink: 0;
+}
+._transcription_toolbar_1kv88_1 ._tips_1kv88_18 {
+  position: absolute;
+  top: -55px;
+  left: 55px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 6px;
+  gap: 8px;
+  box-shadow: 0px 8px 32px 0px rgba(15, 26, 38, 0.08), 0px 2px 20px 0px rgba(15, 26, 38, 0.04);
+}
+._transcription_toolbar_1kv88_1 ._tips_1kv88_18 ._text_1kv88_30 {
+  white-space: nowrap;
+  color: #05080d;
+}
+._transcription_toolbar_1kv88_1 ._drag_box_1kv88_34 {
+  display: flex;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50%;
+  cursor: grab;
+}
+._transcription_toolbar_1kv88_1 ._drag_box_1kv88_34:hover {
+  background: var(--color-background-neutral-hovered, #eeeff0);
+}
+._transcription_toolbar_1kv88_1 ._stop_recording_1kv88_49 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 36px;
+  margin: 0 8px;
+  padding: 0px var(--spacing-100, 8px) 0px var(--spacing-50, 4px);
+  align-items: center;
+  gap: var(--spacing-50, 4px);
+  border-radius: var(--radius-full, 999px);
+  color: var(--color-text-neutral-primary, #05080d);
+  font-feature-settings: 'clig' off, 'liga' off;
+  /* English/Paragaraph/Emphasized/XXL & XL */
+  font-family: 'Noto Sans';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  /* 157.143% */
+  cursor: pointer;
+}
+._transcription_toolbar_1kv88_1 ._stop_recording_1kv88_49 ._red_box_1kv88_71 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._transcription_toolbar_1kv88_1 ._stop_recording_1kv88_49:hover {
+  background: var(--color-background-neutral-hovered, #eeeff0);
+}
+._transcription_toolbar_1kv88_1 ._divider_1kv88_79 {
+  width: 5px;
+  height: 20px;
+  border-left: 1px solid var(--color-divider-neutral-weak, #eeeff0);
+  margin-left: 4px;
+}
+._transcription_toolbar_1kv88_1 ._pause_recording_1kv88_85 {
+  display: flex;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+._transcription_toolbar_1kv88_1 ._bookmark_btn_1kv88_97 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: var(--radius-full, 999px);
+  user-select: none;
+}
+._transcription_toolbar_1kv88_1 ._bookmark_btn_1kv88_97 span {
+  color: #05080d;
+}
+._transcription_toolbar_1kv88_1 ._bookmark_btn_1kv88_97._disabled_1kv88_109 {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+._transcription_toolbar_1kv88_1 ._pause_recording_1kv88_85:hover,
+._transcription_toolbar_1kv88_1 ._bookmark_btn_1kv88_97:hover {
+  background: var(--color-background-neutral-hovered, #eeeff0);
+}
+._transcription_toolbar_1kv88_1 ._hover_area_1kv88_117 {
+  display: none;
+  position: absolute;
+  width: 48px;
+  height: 20px;
+  top: -14px;
+}
+._transcription_toolbar_1kv88_1 ._bottom_1kv88_124 {
+  top: auto;
+  /* 取消 top 设置 */
+  bottom: -50px;
+  /* 设置 bottom */
+}
+._transcription_toolbar_1kv88_1 ._bottom_1kv88_124._hover_area_1kv88_117 {
+  bottom: -14px;
+}
+._transcription_toolbar_1kv88_1:hover ._hover_area_1kv88_117 {
+  display: block;
+}
+._transcription_toolbar_1kv88_1:hover ._close_1kv88_136 {
+  display: block;
+}
+._transcription_toolbar_1kv88_1:hover ._start_transcript_1kv88_139 {
+  display: flex;
+}
+._transcription_toolbar_1kv88_1 img {
+  width: 25px;
+  height: 25px;
+}
+
+._tooltip_container_13fol_1 {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+}
+._tooltip_text_13fol_6 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: var(--spacing-400, 32px);
+  padding: 8px 12px;
+  gap: 12px;
+  color: #fff;
+  text-wrap: nowrap;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-palettes-black-white-white, #fff);
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'Noto Sans';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  visibility: visible;
+  border-radius: 6px;
+  background: var(--Color-Palettes-Grey-Light-800, #0f1a26);
+}
+._tooltip_text_13fol_6::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #000 transparent transparent transparent;
+}
+._tooltip_trigger_13fol_44 {
+  display: flex;
+}
+</style><style data-rc-order="prependQueue" data-css-hash="ifat8r" data-token-hash="1p9qdg">.anticon{display:inline-flex;align-items:center;color:inherit;font-style:normal;line-height:0;text-align:center;text-transform:none;vertical-align:-0.125em;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}.anticon >*{line-height:1;}.anticon svg{display:inline-block;}.anticon .anticon .anticon-icon{display:block;}</style><style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            padding: 18px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+        }
+
+        h2 {
+            margin: 24px 0 8px;
+            font-size: 16px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 14px;
+            margin: 12px 0;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 6px;
+            font-weight: 600;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .muted {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .result {
+            font-weight: 800;
+            color: #c00;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 14px 0;
+        }
+    </style><style type="text/css">button[data-v-4f04decd]:focus{outline:0}.TransIcon[data-v-4f04decd]{position:fixed !important;transition:all .2s linear;animation:fadeIn-4f04decd .2s linear;z-index:999999999999999;filter:unset;width:34px;height:34px;border-radius:11px;border:1px solid #f1f1f1;overflow:hidden}.TransIcon img[data-v-4f04decd]{width:32px;height:32px;object-fit:cover;pointer-events:none}.TransIcon[data-v-4f04decd]:hover{cursor:pointer}.TransDialog[data-v-4f04decd]{position:fixed !important;animation:fadeIn-4f04decd .2s linear;background:#fff;border-radius:16px;border:1px solid #f1f1f1;box-shadow:0px 8px 40px 0px rgba(0,0,0,.1);overflow:hidden;z-index:999999999999999}.TransDialog .dragBlock[data-v-4f04decd]{position:absolute;top:0;left:0;right:0}.TransDialog .dragBlock[data-v-4f04decd]:hover{cursor:move}.TransDialog .dragBlock .top-drap-block[data-v-4f04decd],.TransDialog .dragBlock .left-drap-block[data-v-4f04decd]{position:absolute;left:0}.TransDialog .dragBlock .top-drap-block[data-v-4f04decd]{right:0;height:15px}.TransDialog .dragBlock .left-drap-block[data-v-4f04decd]{height:55px;right:120px}.TransDialog .dragBlock.preview .left-drap-block[data-v-4f04decd]{width:20px;height:79px;right:160px}.TransDialog .dragBlock.scale .left-drap-block[data-v-4f04decd]{right:53px;left:177px;height:40px}.MOJiWebExtensionpanelObject[data-v-4f04decd]{height:100%;width:calc(100% + 5px);border:none;overflow:hidden;z-index:999999999999999}@keyframes fadeIn-4f04decd{from{opacity:0}to{opacity:1}}
+/*# sourceURL=webpack://src/components/TransDialog/App.vue */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9UcmFuc0RpYWxvZy9BcHAudnVlIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBLDhCQUNFLFNBQUEsQ0FHRiw0QkFDRSx5QkFBQSxDQUNBLHlCQUFBLENBQ0Esb0NBQUEsQ0FHQSx1QkFYZSxDQVlmLFlBQUEsQ0FDQSxVQUFBLENBQ0EsV0FBQSxDQUNBLGtCQUFBLENBQ0Esd0JBQUEsQ0FDQSxlQUFBLENBQ0EsZ0NBQ0UsVUFBQSxDQUNBLFdBQUEsQ0FDQSxnQkFBQSxDQUNBLG1CQUFBLENBSUosa0NBQ0UsY0FBQSxDQUdGLDhCQUNFLHlCQUFBLENBRUEsb0NBQUEsQ0FHQSxlQUFBLENBQ0Esa0JBQUEsQ0FDQSx3QkFBQSxDQUVBLDBDQUFBLENBQ0EsZUFBQSxDQUNBLHVCQTFDZSxDQTJDZix5Q0FDRSxpQkFBQSxDQUNBLEtBQUEsQ0FDQSxNQUFBLENBQ0EsT0FBQSxDQUdBLCtDQUNFLFdBQUEsQ0FHRixtSEFDRSxpQkFBQSxDQUNBLE1BQUEsQ0FHRix5REFDRSxPQUFBLENBQ0EsV0FBQSxDQUVGLDBEQUNFLFdBQUEsQ0FDQSxXQUFBLENBS0Esa0VBQ0UsVUFBQSxDQUNBLFdBQUEsQ0FDQSxXQUFBLENBTUYsZ0VBQ0UsVUFBQSxDQUNBLFVBQUEsQ0FDQSxXQUFBLENBTVIsOENBQ0UsV0FBQSxDQUNBLHNCQUFBLENBQ0EsV0FBQSxDQUNBLGVBQUEsQ0FFQSx1QkE5RmUsQ0FxR2pCLDJCQUNFLEtBQ0UsU0FBQSxDQUVGLEdBQ0UsU0FBQSxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnQC9zY3NzL3ZhcmlhYmxlcy5zY3NzJztcblxuJGRpYWxvZy16LWluZGV4OiA5OTk5OTk5OTk5OTk5OTk7XG5idXR0b246Zm9jdXMge1xuICBvdXRsaW5lOiAwO1xufVxuXG4uVHJhbnNJY29uIHtcbiAgcG9zaXRpb246IGZpeGVkICFpbXBvcnRhbnQ7XG4gIHRyYW5zaXRpb246IGFsbCAwLjJzIGxpbmVhcjtcbiAgYW5pbWF0aW9uOiBmYWRlSW4gMC4ycyBsaW5lYXI7XG4gIC8vIHdpZHRoOiAyNHB4O1xuICAvLyBoZWlnaHQ6IDI0cHg7XG4gIHotaW5kZXg6ICRkaWFsb2ctei1pbmRleDtcbiAgZmlsdGVyOiB1bnNldDtcbiAgd2lkdGg6IDM0cHg7XG4gIGhlaWdodDogMzRweDtcbiAgYm9yZGVyLXJhZGl1czogMTFweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI0YxRjFGMTtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgaW1nIHtcbiAgICB3aWR0aDogMzJweDtcbiAgICBoZWlnaHQ6IDMycHg7XG4gICAgb2JqZWN0LWZpdDogY292ZXI7XG4gICAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG4gIH1cbn1cblxuLlRyYW5zSWNvbjpob3ZlciB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLlRyYW5zRGlhbG9nIHtcbiAgcG9zaXRpb246IGZpeGVkICFpbXBvcnRhbnQ7XG4gIC8vIHRyYW5zaXRpb246IGFsbCAwLjJzIGxpbmVhcjtcbiAgYW5pbWF0aW9uOiBmYWRlSW4gMC4ycyBsaW5lYXI7XG4gIC8vIHdpZHRoOiAzOTJweDtcbiAgLy8gaGVpZ2h0OiA0NDhweDtcbiAgYmFja2dyb3VuZDogI2ZmZmZmZjtcbiAgYm9yZGVyLXJhZGl1czogMTZweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2YxZjFmMTtcbiAgLy8gb3ZlcmZsb3c6IGF1dG87XG4gIGJveC1zaGFkb3c6IDBweCA4cHggNDBweCAwcHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB6LWluZGV4OiAkZGlhbG9nLXotaW5kZXg7XG4gIC5kcmFnQmxvY2sge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6MDtcbiAgICBsZWZ0OiAwO1xuICAgIHJpZ2h0OiAwO1xuICAgIC8vIGhlaWdodDogNjBweDtcblxuICAgICY6aG92ZXIge1xuICAgICAgY3Vyc29yOiBtb3ZlO1xuICAgIH1cblxuICAgIC50b3AtZHJhcC1ibG9jaywgLmxlZnQtZHJhcC1ibG9jayB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBsZWZ0OiAwO1xuICAgIH1cbiAgICAvLyBkZWZhbHVsdFxuICAgIC50b3AtZHJhcC1ibG9jayB7XG4gICAgICByaWdodDogMDtcbiAgICAgIGhlaWdodDogMTVweDtcbiAgICB9XG4gICAgLmxlZnQtZHJhcC1ibG9jayB7XG4gICAgICBoZWlnaHQ6IDU1cHg7XG4gICAgICByaWdodDogMTIwcHg7XG4gICAgfVxuXG4gICAgLy8gcHJldmlld1xuICAgICYucHJldmlldyB7XG4gICAgICAubGVmdC1kcmFwLWJsb2NrIHtcbiAgICAgICAgd2lkdGg6IDIwcHg7XG4gICAgICAgIGhlaWdodDogNzlweDtcbiAgICAgICAgcmlnaHQ6IDE2MHB4O1xuICAgICAgfVxuICAgIH1cblxuICAgIC8vIGRpYWxvZyB3aXRoIHNjYWxlXG4gICAgJi5zY2FsZSB7XG4gICAgICAubGVmdC1kcmFwLWJsb2NrIHtcbiAgICAgICAgcmlnaHQ6IDUzcHg7XG4gICAgICAgIGxlZnQ6IDE3N3B4O1xuICAgICAgICBoZWlnaHQ6IDQwcHg7XG4gICAgICB9XG4gICAgfVxuICB9XG59XG5cbi5NT0ppV2ViRXh0ZW5zaW9ucGFuZWxPYmplY3Qge1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiBjYWxjKDEwMCUgKyA1cHgpO1xuICBib3JkZXI6IG5vbmU7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIC8vIGJhY2tncm91bmQ6ICNmZmZmZmY7XG4gIHotaW5kZXg6ICRkaWFsb2ctei1pbmRleDtcbiAgLy8g5LiN5pi+56S654Gr54uQaWZyYW1l55qE5rua5Yqo5p2hXG4gIC8vICYuZmlyZWZveC1vYmplY3Qge1xuICAvLyAgIHdpZHRoOiBjYWxjKDEwMCUgKyAxNXB4KTtcbiAgLy8gfVxufVxuXG5Aa2V5ZnJhbWVzIGZhZGVJbiB7XG4gIGZyb20ge1xuICAgIG9wYWNpdHk6IDA7XG4gIH1cbiAgdG8ge1xuICAgIG9wYWNpdHk6IDE7XG4gIH1cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style type="text/css" data-comment-style=""></style></template></div><div id="notta-transcription-global-message"></div></body></html>
